@@ -77,11 +77,18 @@ def classify_text():
     # Vectorizar el texto
     texto_vectorizado = vectorizer.transform([texto])
     
-    # Predecir la clase
+    # Predecir la clase y las probabilidades
     prediccion = modelo.predict(texto_vectorizado)
+    probabilidades = modelo.predict_proba(texto_vectorizado).flatten()
     
-    return jsonify({'clase': prediccion[0]})
-
+    # Crear un diccionario para las probabilidades
+    clases = modelo.classes_
+    probabilidades_dict = {clase: probabilidad for clase, probabilidad in zip(clases, probabilidades)}
+    
+    return jsonify({
+        'clase': prediccion[0],
+        'probabilidades': probabilidades_dict
+    })
 if __name__ == '__main__':
     train_model()  # Entrena el modelo al iniciar la aplicación
     app.run(debug=True)
