@@ -3,12 +3,12 @@ import json
 import os
 import pandas as pd
 from sklearn.model_selection import train_test_split
-from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.metrics import accuracy_score, classification_report
 import joblib
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='.')
 
 # Inicialización del modelo y el vectorizador
 modelo = None
@@ -16,6 +16,7 @@ vectorizer = None
 
 def train_model():
     global modelo, vectorizer  # Permitir que estas variables sean accesibles fuera de la función
+    
     # Comprobar si el modelo y el vectorizador ya existen
     if os.path.exists('text_classifier_model.joblib') and os.path.exists('vectorizer.joblib'):
         print("Modelo y vectorizador ya existentes. Cargando...")
@@ -45,7 +46,7 @@ def train_model():
     X_train, X_test, y_train, y_test = train_test_split(df['texto'], df['etiqueta'], test_size=0.2, random_state=42)
 
     # Vectorizar los textos
-    vectorizer = CountVectorizer()
+    vectorizer = TfidfVectorizer()
     X_train_vectorized = vectorizer.fit_transform(X_train)
 
     # Crear y entrenar el clasificador
@@ -66,7 +67,7 @@ def train_model():
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('index.html')  # Asegúrate de que el archivo esté en la raíz ahora
 
 @app.route('/classify', methods=['POST'])
 def classify_text():
