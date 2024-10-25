@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clasificador de Texto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        textarea {
+            width: 100%;
+            height: 200px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Clasificador de Texto</h1>
+    <label for="texto">Introduce el texto para clasificar:</label>
+    <textarea id="texto"></textarea>
+    <button onclick="clasificarTexto()">Clasificar Texto</button>
+    <h2 id="resultado"></h2>
+
+    <script>
+        async function clasificarTexto() {
+            const texto = document.getElementById("texto").value;
+            if (!texto.trim()) {
+                alert("Por favor, introduce un texto.");
+                return;
+            }
+
+            const response = await fetch('/classify', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ texto: texto }),
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                document.getElementById("resultado").innerText = "El texto es de tipo: " + data.clase;
+            } else {
+                alert("Error al clasificar el texto.");
+            }
+        }
+    </script>
+</body>
+</html>
