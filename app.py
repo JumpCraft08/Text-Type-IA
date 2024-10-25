@@ -17,11 +17,15 @@ vectorizer = None
 def train_model():
     global modelo, vectorizer  # Permitir que estas variables sean accesibles fuera de la función
     
+    # Definir las rutas para el modelo y el vectorizador
+    model_path = 'model/text_classifier_model.joblib'
+    vectorizer_path = 'model/vectorizer.joblib'
+    
     # Comprobar si el modelo y el vectorizador ya existen
-    if os.path.exists('text_classifier_model.joblib') and os.path.exists('vectorizer.joblib'):
+    if os.path.exists(model_path) and os.path.exists(vectorizer_path):
         print("Modelo y vectorizador ya existentes. Cargando...")
-        modelo = joblib.load('text_classifier_model.joblib')
-        vectorizer = joblib.load('vectorizer.joblib')
+        modelo = joblib.load(model_path)
+        vectorizer = joblib.load(vectorizer_path)
         return
 
     print("Entrenando nuevo modelo...")
@@ -62,8 +66,8 @@ def train_model():
     print(classification_report(y_test, y_pred))
 
     # Guardar el modelo y el vectorizador
-    joblib.dump(modelo, 'text_classifier_model.joblib')
-    joblib.dump(vectorizer, 'vectorizer.joblib')
+    joblib.dump(modelo, model_path)
+    joblib.dump(vectorizer, vectorizer_path)
 
 @app.route('/')
 def home():
@@ -89,6 +93,7 @@ def classify_text():
         'clase': prediccion[0],
         'probabilidades': probabilidades_dict
     })
+
 if __name__ == '__main__':
     train_model()  # Entrena el modelo al iniciar la aplicación
     app.run(debug=True)
