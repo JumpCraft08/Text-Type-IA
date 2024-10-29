@@ -18,7 +18,7 @@ Este proyecto es una aplicación web de clasificador de texto construida con Fla
 Descargar e Instalar [Python](https://www.python.org/downloads) si no lo has hecho todavia.
 
 <div>
-    <img src="README/1-README.png" alt="uvu">
+    <img src="files/1-README.png" alt="uvu">
     <br>
     <br>
 </div>
@@ -30,7 +30,7 @@ Abre CMD/Terminal dentro de esta carpeta.
 > En Windows, abre un `símbolo del sistema` como administrador. Escribe `cd` seguido de un espacio y arrastra la carpeta deseada dentro de la ventana. Presiona enter.
 
 <div style="text-align: center;">
-    <img src="README/2-README.png" alt="uvu" width="400">
+    <img src="files/2-README.png" alt="uvu" width="400">
     <br>
     <br>
 </div>
@@ -70,7 +70,7 @@ python app.py
 Navega a [index.html](http://127.0.0.1:5000). Con esto ya puedes empezar a usar la IA, tan solo tienes que escribir un texto y la IA te dirá que tipo de texto es.
 
 <div style="text-align: center;">
-    <img src="README/4-README.gif" alt="uvu">
+    <img src="files/4-README.gif" alt="uvu">
     <br>
     <br>
 </div>
