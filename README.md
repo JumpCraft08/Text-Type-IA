@@ -3,27 +3,74 @@
 Este proyecto es una aplicación web de clasificador de texto construida con Flask y utiliza un modelo de aprendizaje automático para clasificar textos en diferentes categorías. La aplicación permite a los usuarios ingresar texto, y el clasificador devuelve la categoría correspondiente junto con las probabilidades de cada clase.
 
 ## Tabla de Contenidos
-- [Características](#características)
-- [Tecnologías Utilizadas](#tecnologías-utilizadas)
-- [Configuración](#configuración)
-- [Uso](#uso)
-- [Contribuciones](#contribuciones)
-- [Licencia](#licencia)
+- [Tabla de Contenidos](#tabla-de-contenidos)
+- [Requisitos](#requisitos-🧾)
+- [Uso](#uso-✨)
 
-## Características
-- **Clasificación de Texto**: Clasifica textos en diferentes categorías utilizando un modelo de Naive Bayes.
-- **Interfaz de Usuario**: Una interfaz sencilla y clara para ingresar texto y ver resultados.
-- **Entrenamiento Automático**: El modelo se entrena automáticamente si no se encuentra un modelo preexistente.
-- **Resultados Detallados**: Muestra la clase predicha y las probabilidades asociadas a cada clase.
+# Requisitos 🧾
+- Python 3.8 o superior (https://www.python.org/downloads)
+  - Version Recomendada [3.10.2](https://www.python.org/downloads/release/python-3102/)
 
-## Tecnologías Utilizadas
-- [Flask](https://flask.palletsprojects.com/) - Un micro framework para Python.
-- [Scikit-learn](https://scikit-learn.org/) - Biblioteca de aprendizaje automático en Python.
-- [Pandas](https://pandas.pydata.org/) - Biblioteca para el manejo y análisis de datos.
-- [Joblib](https://joblib.readthedocs.io/en/latest/) - Utilizado para guardar y cargar modelos de aprendizaje automático.
-- [HTML/CSS](https://www.w3.org/TR/html52/) - Para la creación de la interfaz de usuario.
+## Uso ✨
 
 
-## Configuración
-1. **Instalar Dependencias**: Asegúrate de tener `pip` instalado con las dependencias necesarias
-2. **Ejectuar Aplicación**: Ejecuta app.py con el run.bat
+### ✏️ <ins>Step 1:</ins>
+Descargar e Instalar [Python](https://www.python.org/downloads) si no lo has hecho todavia.
+
+<div>
+    <img src="README/1-README.png" alt="uvu">
+    <br>
+    <br>
+</div>
+
+
+
+### ✏️ <ins>Step 2:</ins>
+Abre CMD/Terminal dentro de esta carpeta.
+> En Windows, abre un `símbolo del sistema` como administrador. Escribe `cd` seguido de un espacio y arrastra la carpeta deseada dentro de la ventana. Presiona enter.
+
+<div style="text-align: center;">
+    <img src="README/2-README.png" alt="uvu" width="400">
+    <br>
+    <br>
+</div>
+
+
+
+### ✏️ <ins>Step 3:</ins>
+Install `requirements.txt` with the command below
+```
+pip install -r requirements.txt
+```
+> Si tienes algun error, probablemente necesites ejecutar el símbolo del sistema como administrador.
+
+<div>
+    <img src="https://i.alexflipnote.dev/4QPnZiX.gif" alt="uvu">
+    <br>
+    <br>
+</div>
+
+
+
+### ✏️ <ins>Step 3:</ins>
+Abre el script utilizando el comando. (Puede ser diferente; por ejemplo, en Linux y MacOS se puede usar python3)
+```
+python app.py
+```
+
+<div style="text-align: center;">
+    <img src="https://i.alexflipnote.dev/9BNt3XM.png" alt="uvu" width="500">
+    <br>
+    <br>
+</div>
+
+
+
+### ✏️ <ins>Step 4:</ins>
+Navega a [index.html](http://127.0.0.1:5000). Con esto ya puedes empezar a usar la IA, tan solo tienes que escribir un texto y la IA te dirá que tipo de texto es.
+
+<div style="text-align: center;">
+    <img src="README/4-README.gif" alt="uvu">
+    <br>
+    <br>
+</div>
